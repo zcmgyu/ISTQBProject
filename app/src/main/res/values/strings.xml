@@ -1,3 +1,164 @@
 <resources>
-    <string name="app_name">ISTQBProject</string>
+    <string name="app_name">ISTQB QUIZ</string>
+    <string name="start_quiz">Start quiz</string>
+
+    <!-- Quiz activity display-->
+    <string name="question_num">Question: %d/%d</string>
+    <string name="btn_submit">Submit quiz</string>
+    <string name="btn_previous">Previous</string>
+    <string name="btn_next">Next</string>
+
+    <!-- question array has 5 fields: 0 = description, 1-4 = options 1-4, 5 = correct option number -->
+    <string-array name="q1">
+        <item>What is the capital city of Greece?</item>
+        <item>Vienna</item>
+        <item>Volos</item>
+        <item>Athens</item>
+        <item>Sparta</item>
+        <item>opt3</item>
+    </string-array>
+
+    <string-array name="q2">
+        <item>What is the capital city of Ghana?</item>
+        <item>Abzurbistan</item>
+        <item>Accra</item>
+        <item>Avalon</item>
+        <item>Attleboro</item>
+        <item>opt2</item>
+    </string-array>
+
+    <string-array name="q3">
+        <item>What is the capital city of Moldova?</item>
+        <item>Durleşti</item>
+        <item>Cojuşna</item>
+        <item>Chişinău</item>
+        <item>Dragoş</item>
+        <item>opt3</item>
+    </string-array>
+
+    <string-array name="q4">
+        <item>What is the capital of Sierra Leone?</item>
+        <item>Freetown</item>
+        <item>Centerville</item>
+        <item>Chestershire</item>
+        <item>Nowhere</item>
+        <item>opt1</item>
+    </string-array>
+
+    <string-array name="q5">
+        <item>The capital city of Belize is … ?</item>
+        <item>San Ignacio</item>
+        <item>Belissimo</item>
+        <item>Belize City</item>
+        <item>Belmopan</item>
+        <item>opt4</item>
+    </string-array>
+
+    <string-array name="q6">
+        <item>What is the capital city of Qatar?</item>
+        <item>Doha</item>
+        <item>Mesaieed</item>
+        <item>Old Airport</item>
+        <item>Dakar</item>
+        <item>opt1</item>
+    </string-array>
+
+    <string-array name="q7">
+        <item>What is Iceland\'s capital city?</item>
+        <item>Njarõvík</item>
+        <item>Kópavogur</item>
+        <item>Reykjavík</item>
+        <item>Mosfellsbær</item>
+        <item>opt3</item>
+    </string-array>
+
+    <string-array name="q8">
+        <item>Vanuatu\'s capital city is … ?</item>
+        <item>Whitesands</item>
+        <item>Lamap</item>
+        <item>Sulphur Bay</item>
+        <item>Port Vila</item>
+        <item>opt4</item>
+    </string-array>
+
+    <string-array name="q9">
+        <item>What is the capital of the Philippines?</item>
+        <item>Manila</item>
+        <item>Caloocan</item>
+        <item>Cagayan de Oro</item>
+        <item>Taguig</item>
+        <item>opt1</item>
+    </string-array>
+
+    <string-array name="q10">
+        <item>The capital of Morocco is … ?</item>
+        <item>Rabat</item>
+        <item>Salé</item>
+        <item>Casablanca</item>
+        <item>Fez</item>
+        <item>opt1</item>
+    </string-array>
+
+    <string-array name="q11">
+        <item>What is the capital city of Nepal?</item>
+        <item>Bhaktapur</item>
+        <item>Kathmandu</item>
+        <item>Dharan</item>
+        <item>Pokhara</item>
+        <item>opt2</item>
+    </string-array>
+
+    <string-array name="q12">
+        <item>What is the capital of Kenya?</item>
+        <item>Hakuna Matata</item>
+        <item>Mombasa</item>
+        <item>Kilwa</item>
+        <item>Nairobi</item>
+        <item>opt4</item>
+    </string-array>
+
+    <string-array name="q13">
+        <item>What is the capital of Estonia?</item>
+        <item>Nõmme</item>
+        <item>Tallinn</item>
+        <item>Haabersti</item>
+        <item>Pirita</item>
+        <item>opt2</item>
+    </string-array>
+
+    <string-array name="q14">
+        <item>What is the capital of Colombia?</item>
+        <item>El Totumo</item>
+        <item>Cundinamarca</item>
+        <item>Bogotá</item>
+        <item>San Andrés</item>
+        <item>opt3</item>
+    </string-array>
+
+    <string-array name="q15">
+        <item>What is the capital of Lesotho?</item>
+        <item>Maseru</item>
+        <item>Sesotho</item>
+        <item>Basotho</item>
+        <item>Bosiu</item>
+        <item>opt1</item>
+    </string-array>
+
+    <array name="questions">
+        <item>@array/q1</item>
+        <item>@array/q2</item>
+        <item>@array/q3</item>
+        <item>@array/q4</item>
+        <item>@array/q5</item>
+        <item>@array/q6</item>
+        <item>@array/q7</item>
+        <item>@array/q8</item>
+        <item>@array/q9</item>
+        <item>@array/q10</item>
+        <item>@array/q11</item>
+        <item>@array/q12</item>
+        <item>@array/q13</item>
+        <item>@array/q14</item>
+        <item>@array/q15</item>
+    </array>
 </resources>

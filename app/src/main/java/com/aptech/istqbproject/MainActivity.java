@@ -1,8 +1,10 @@
 package com.aptech.istqbproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -19,30 +21,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+
+//        LinearLayout mainLayout = (LinearLayout) findViewById(R.id.activity_main);
+//        TextView tvQuestion = new TextView(this);
+//        tvQuestion.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.text_size_question));
+//        tvQuestion.setText("Question here here here here here here here here here here!");
+//
+//        mainLayout.addView(tvQuestion);
+//
+//        RadioGroup rgAns = new RadioGroup(this);
+//
+//        for (int i = 0; i < 6; i++) {
+//            RadioButton rb = new RadioButton(this);
+//            rb.setText("Answer here here " + i);
+//        }
+//
+//        mainLayout.addView(rgAns);
+
 //        String json = loadJson();
 //        int no;
 //        String question;
 //        JSONObject answers;
-        LinearLayout mainLayout = (LinearLayout) findViewById(R.id.activity_main);
-        TextView tvQuestion = new TextView(this);
-        tvQuestion.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.text_size_question));
-        tvQuestion.setText("Question here here here here here here here here here here!");
 
-        mainLayout.addView(tvQuestion);
+        // Create text view for Question No.            rgAns.addView(rb);
 
-        RadioGroup rgAns = new RadioGroup(this);
-
-        for (int i = 0; i < 6; i++) {
-            LinearLayout loAns = new LinearLayout(this);
-            RadioButton rb = new RadioButton(this);
-            rb.setText("Answer here here " + i);
-            rgAns.addView(rb);
-        }
-
-        mainLayout.addView(rgAns);
-
-
-        // Create text view for Question No.
 //        TextView quesNo = new TextView(this);
 //        linearLayout.addView(quesNo);
 //        try {
@@ -70,6 +74,20 @@ public class MainActivity extends AppCompatActivity {
 //        } catch (JSONException e) {
 //            e.printStackTrace();
 //        }
+    }
+
+    private void makeQuiz(View view) {
+        // Make data
+        Bundle data = new Bundle();
+
+        data.putInt("quiz_num", 1);
+
+        // Make the intent
+        Intent intent = new Intent(this, QuizActivity.class);
+
+        // Add data
+        intent.putExtras(data);
+        startActivity(intent);
     }
 
     public String loadJson() {
