@@ -3,6 +3,6 @@
     <dimen name="text_size_question">16sp</dimen>
     <dimen name="question_num">20sp</dimen>
     <dimen name="padding_question">10sp</dimen>
-    <dimen name="margin_button">20dp</dimen>
+    <dimen name="margin_button">10dp</dimen>
 
 </resources>

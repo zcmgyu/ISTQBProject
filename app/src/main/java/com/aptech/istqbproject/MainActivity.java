@@ -1,26 +1,24 @@
 package com.aptech.istqbproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 
 
 import java.io.IOException;
 import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String PREFS_NAME = "data";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        SharedPreferences preferences = getSharedPreferences(PREFS_NAME, 0);
+        preferences.edit().clear().commit();
 
 
 
@@ -76,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 //        }
     }
 
-    private void makeQuiz(View view) {
+    public void makeQuiz(View view) {
         // Make data
         Bundle data = new Bundle();
 
@@ -90,20 +88,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public String loadJson() {
-        String json;
-        try {
-            InputStream is = getResources()
-                    .openRawResource(R.raw.file);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
+
 }

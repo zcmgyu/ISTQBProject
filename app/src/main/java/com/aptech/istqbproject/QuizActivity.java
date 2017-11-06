@@ -1,12 +1,18 @@
 package com.aptech.istqbproject;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aptech.istqbproject.utils.JsonUtil;
 
@@ -19,6 +25,7 @@ import java.util.Iterator;
 
 public class QuizActivity extends AppCompatActivity {
     int questionNo;
+    public static final String PREFS_NAME = "data";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,33 +49,63 @@ public class QuizActivity extends AppCompatActivity {
         JSONArray questionList = JsonUtil.loadJsonArrayFile(this, R.raw.file);
         Button btnPrevious = (Button) findViewById(R.id.btn_previous);
         Button btnNext = (Button) findViewById(R.id.btn_next);
+        LinearLayout direction_quiz = (LinearLayout) findViewById(R.id.ll_direction_quiz);
+
+        // Get Radio Group
+        final RadioGroup rgAnswer = (RadioGroup) findViewById(R.id.rg_answer);
+        rgAnswer.removeAllViews();
+        rgAnswer.clearCheck();
+
         if (questionNo == 1) {
-            btnPrevious.setEnabled(false);
+            direction_quiz.setWeightSum(1);
+            btnPrevious.setVisibility(View.GONE);
         } else {
-            btnPrevious.setEnabled(true);
+            direction_quiz.setWeightSum(2);
+            btnPrevious.setVisibility(View.VISIBLE);
             btnPrevious.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    previous(view);
+                    try {
+                        previous(view);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
+            btnPrevious.setText(getString(R.string.btn_previous));
         }
         if (questionNo == questionList.length()) {
             btnNext.setText(R.string.btn_submit);
             btnNext.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    submitQuiz();
+                    if (rgAnswer.getCheckedRadioButtonId() == -1) {
+                        Toast.makeText(getApplicationContext(), "Give the answer before submitting.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        submitQuiz();
+                    }
                 }
             });
         } else {
+            btnNext.setText(getString(R.string.btn_next));
             btnNext.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    next(view);
+                    try {
+                        if (rgAnswer.getCheckedRadioButtonId() == -1) {
+                            Toast.makeText(getApplicationContext(), "Give the answer before going to the next question.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            next(view);
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
-            btnNext.setText(getString(R.string.btn_next));
         }
 
         // Set question number
@@ -83,26 +120,72 @@ public class QuizActivity extends AppCompatActivity {
         String question = questionObj.getString("question");
         tvQuestion.setText(question);
 
-        // Get Radio Group
-        RadioGroup rgAnswer = (RadioGroup) findViewById(R.id.rg_answer);
+
+        rgAnswer.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                Toast.makeText(getApplicationContext(), "Selected " + i, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Set answer radio
         JSONObject answerObj = questionObj.getJSONObject("answers");
         Iterator<String> answerIter = answerObj.keys();
         while (answerIter.hasNext()) {
-            String answer = answerObj.getString(answerIter.next());
+            String key = answerIter.next();
+            String answer = answerObj.getString(key);
             RadioButton rbAnswer = new RadioButton(this);
+            rbAnswer.setId(key.charAt(0));
             rbAnswer.setText(answer);
             rgAnswer.addView(rbAnswer);
         }
+
+        // check either saved option or don't know
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        int selectedRadio = settings.getInt(String.format("ques_no_%d", questionNo), -1);
+        if (selectedRadio != -1) {
+            RadioButton r = rgAnswer.findViewById(selectedRadio);
+            r.setChecked(true);
+        }
+
     }
 
-    private void previous(View view) {
+    public void previous(View view) throws IOException, JSONException {
+        saveAnswer(questionNo);
+        displayQuiz(questionNo - 1);
     }
 
-    private void next(View view) {
+    public void next(View view) throws IOException, JSONException {
+        saveAnswer(questionNo);
+        displayQuiz(questionNo + 1);
     }
 
     private void submitQuiz() {
+        saveAnswer(questionNo);
+
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle(getString(R.string.submitConfirmTitle))
+                .setMessage(getString(R.string.submitConfirmMessage))
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // switch to the results activity (that also handles score tally and highscores)
+                        Intent results = new Intent(QuizActivity.this, ResultActivity.class);
+                        startActivity(results);
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null)
+                .show();
+    }
+
+    private void saveAnswer(int questionNo) {
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        RadioGroup rg = (RadioGroup) findViewById(R.id.rg_answer);
+        int checkedRadio = rg.getCheckedRadioButtonId();
+        editor.putInt(String.format("ques_no_%d", questionNo), checkedRadio);
+        editor.apply();
     }
 }
