@@ -1,29 +1,32 @@
 [
   {
     "no": 1,
-    "question": "some question 1",
+    "question": "Which of the following is a MAJOR task of test planning?",
+    "sub_question": "",
     "answers": {
-      "A": "Answer A 1",
-      "B": "Answer B 1",
-      "C": "Answer C 1",
-      "D": "Answer D 1"
+      "A": "Scheduling test analysis and design tasks.",
+      "B": "Initiating corrective actions.",
+      "C": "Monitoring progress and test coverage",
+      "D": "Measuring and analyzing results."
     },
     "true_answer": "A"
   },
   {
     "no": 2,
-    "question": "some question 2",
+    "question": "The Phases of formal review process is mentioned below arrange them in the correct order.",
+    "sub_question": "i. Planning\nii. Review Meeting\niii. Rework\niv. Individual Preparations\nv. Kick Off\nvi. Follow Up",
     "answers": {
-      "A": "Answer A 2",
-      "B": "Answer B 2",
-      "C": "Answer C 2",
-      "D": "Answer D 2"
+      "A": "i, ii, iii, iv, v, vi",
+      "B": "vi, i, ii, iii, iv, v",
+      "C": "i, v, iv, ii, iii, vi",
+      "D": "i, ii, iii,v, iv, vi"
     },
     "true_answer": "A"
   },
   {
     "no": 3,
     "question": "some question 3",
+    "sub_question": "",
     "answers": {
       "A": "Answer A 3",
       "B": "Answer B 3",
@@ -35,6 +38,79 @@
   {
     "no": 4,
     "question": "some question 4",
+    "sub_question": "",
+    "answers": {
+      "A": "Answer A 4",
+      "B": "Answer B 4",
+      "C": "Answer C 4",
+      "D": "Answer D 4"
+    },
+    "true_answer": "A"
+  },
+  {
+    "no": 5,
+    "question": "some question 4",
+    "sub_question": "",
+    "answers": {
+      "A": "Answer A 4",
+      "B": "Answer B 4",
+      "C": "Answer C 4",
+      "D": "Answer D 4"
+    },
+    "true_answer": "A"
+  },
+  {
+    "no": 6,
+    "question": "some question 4",
+    "sub_question": "",
+    "answers": {
+      "A": "Answer A 4",
+      "B": "Answer B 4",
+      "C": "Answer C 4",
+      "D": "Answer D 4"
+    },
+    "true_answer": "A"
+  },
+  {
+    "no": 7,
+    "question": "some question 4",
+    "sub_question": "",
+    "answers": {
+      "A": "Answer A 4",
+      "B": "Answer B 4",
+      "C": "Answer C 4",
+      "D": "Answer D 4"
+    },
+    "true_answer": "A"
+  },
+  {
+    "no": 8,
+    "question": "some question 4",
+    "sub_question": "",
+    "answers": {
+      "A": "Answer A 4",
+      "B": "Answer B 4",
+      "C": "Answer C 4",
+      "D": "Answer D 4"
+    },
+    "true_answer": "A"
+  },
+  {
+    "no": 9,
+    "question": "some question 4",
+    "sub_question": "",
+    "answers": {
+      "A": "Answer A 4",
+      "B": "Answer B 4",
+      "C": "Answer C 4",
+      "D": "Answer D 4"
+    },
+    "true_answer": "A"
+  },
+  {
+    "no": 10,
+    "question": "some question 4",
+    "sub_question": "",
     "answers": {
       "A": "Answer A 4",
       "B": "Answer B 4",

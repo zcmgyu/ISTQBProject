@@ -120,14 +120,15 @@ public class QuizActivity extends AppCompatActivity {
         String question = questionObj.getString("question");
         tvQuestion.setText(question);
 
-
-        rgAnswer.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                Toast.makeText(getApplicationContext(), "Selected " + i, Toast.LENGTH_SHORT).show();
-            }
-        });
-
+        // Set sub question description
+        TextView tvSubQuestion = (TextView) findViewById(R.id.tv_sub_question);
+        String subQuestion = questionObj.getString("sub_question");
+        if (subQuestion.isEmpty() || subQuestion == null) {
+            tvSubQuestion.setVisibility(View.GONE);
+        } else {
+            tvSubQuestion.setVisibility(View.VISIBLE);
+            tvSubQuestion.setText(subQuestion);
+        }
         // Set answer radio
         JSONObject answerObj = questionObj.getJSONObject("answers");
         Iterator<String> answerIter = answerObj.keys();

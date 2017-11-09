@@ -14,6 +14,7 @@
     <string name="dontKnow">I don\'t know.</string>
     <string name="correct">Correct!</string>
     <string name="newHighscore">New Highscore!</string>
+    <string name="resultsDesc">Individual question results:</string>
 
     <!-- format strings for displaying scores and such -->
     <string name="resultsTitle" formatted="false">Score: %.1f%%</string>

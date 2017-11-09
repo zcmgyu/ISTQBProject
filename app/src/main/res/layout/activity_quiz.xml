@@ -31,9 +31,22 @@
                 android:id="@+id/tv_question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_question"
+                android:paddingLeft="@dimen/padding_question"
+                android:paddingRight="@dimen/padding_question"
+                android:paddingTop="@dimen/padding_question"
+                android:paddingBottom="@dimen/padding_question_sub"
                 android:text="Question here"
                 android:textSize="@dimen/question_num" />
+            <TextView
+                android:id="@+id/tv_sub_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/padding_question"
+                android:paddingRight="@dimen/padding_question"
+                android:paddingBottom="@dimen/padding_question"
+                android:paddingTop="@dimen/padding_question_sub"
+                android:text="Sub Question here"
+                android:textSize="@dimen/sub_question_num" />
 
             <RadioGroup
                 android:id="@+id/rg_answer"
