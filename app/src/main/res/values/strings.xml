@@ -7,20 +7,22 @@
     <string name="btn_submit">Submit quiz</string>
     <string name="btn_previous">Previous</string>
     <string name="btn_next">Next</string>
+    <string name="btn_back_to_home">Home</string>
+    <string name="btn_see_detail">See details</string>
 
     <string name="submitConfirmTitle">Confirm Submission</string>
     <string name="submitConfirmMessage">Are you sure?</string>
 
     <string name="dontKnow">I don\'t know.</string>
     <string name="correct">Correct!</string>
-    <string name="newHighscore">New Highscore!</string>
+    <string name="new_high_score">New High Score!</string>
     <string name="resultsDesc">Individual question results:</string>
 
     <!-- format strings for displaying scores and such -->
-    <string name="resultsTitle" formatted="false">Score: %.1f%%</string>
-    <string name="highscore" formatted="false">Highscore: %.1f%%</string>
+    <string name="results_title" formatted="false">Score: %.1f%%</string>
+    <string name="high_score" formatted="false">Highscore: %.1f%%</string>
     <string name="questionNumber" formatted="false">Question %d/%d</string>
     <string name="questionNumberSingle" formatted="false">Question %d</string>
-    <string name="youAnswered" formatted="false">You answered: %s</string>
-    <string name="incorrect" formatted="false">Correct answer: %s</string>
+    <string name="your_answer" formatted="false">You answered: %s</string>
+    <string name="correct_answer" formatted="false">Correct answer: %s</string>
 </resources>

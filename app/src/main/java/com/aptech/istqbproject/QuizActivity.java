@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 public class QuizActivity extends AppCompatActivity {
-    int questionNo;
+    private int questionNo;
     public static final String PREFS_NAME = "data";
 
     @Override
@@ -142,8 +142,8 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         // check either saved option or don't know
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        int selectedRadio = settings.getInt(String.format("ques_no_%d", questionNo), -1);
+        SharedPreferences preferences = getSharedPreferences(PREFS_NAME, 0);
+        int selectedRadio = preferences.getInt(String.format("ques_no_%d", questionNo), -1);
         if (selectedRadio != -1) {
             RadioButton r = rgAnswer.findViewById(selectedRadio);
             r.setChecked(true);
@@ -172,7 +172,6 @@ public class QuizActivity extends AppCompatActivity {
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // switch to the results activity (that also handles score tally and highscores)
                         Intent results = new Intent(QuizActivity.this, ResultActivity.class);
                         startActivity(results);
                     }
