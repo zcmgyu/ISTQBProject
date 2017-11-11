@@ -28,14 +28,6 @@
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/score_result" />
-        <TextView
-            android:id="@+id/tv_previous_score"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="previous core: 3/10"
-            android:textSize="@dimen/previous_score_result"
-            android:textStyle="italic"/>
 
     </LinearLayout>
 
